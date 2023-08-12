@@ -131,11 +131,64 @@ console.log(emptyArr, emptyArr.length);
  */
 // 배열 length 프로퍼티 명시적 변경
 var arr = [0, 1, 2];
-console.log(arr.length);
+console.log(arr.length);    // result => 3
 
 arr.length = 5;
-console.log(arr.length);
+console.log(arr.length);    // result => 5
 
 arr.length = 2;
+console.log(arr);       // result => [ 0, 1 ]
+console.log(arr[2]);    // result => undefined
+/**
+ *  arr.push(element) <=> arr[arr.length] = element
+ **/
+
+
+/**
+ * 배열 출력 : for in, for ...> for in 문은 불필요한 프로퍼티까지 출력될 수 있다
+ */
+arr.color = 'blue';
+for (var prop in arr) {
+    console.log(prop, arr[prop]);
+}
+for (var i = 0; i < arr.length; i++) {
+    console.log(i, arr[i]);
+}
+
+
+/**
+ * Array() 생성자 함수 <=> 배열 생성 단순화
+ */
+foo = new Array(3);
+foo = new Array(1,2,3);
+console.log(foo);
+// 유사배열객체 : 일반객체에 length 프로퍼티 생성. and apply()메소드를 통해 push기능 수행
+var arr = ['bar'];
+var obj = {name : 'foo', length : 1};
+
+arr.push('baz');
 console.log(arr);
-console.log(arr[2]);
+
+Array.prototype.push.apply(obj, ['baz']);
+console.log(obj);
+
+/**
+ * ==(동등)연산자 ===(일치)연산자
+ */
+console.log(1 == '1');      // result => true
+console.log(1 === '1');     // result => false
+
+/**
+ * !! 연산자
+ * boolean 값으로 바꿔줌 % 빈 객체 -> true
+ */
+console.log(!!0);
+console.log(!!1);
+console.log(!!'string');
+console.log(!!'');
+console.log(!!true);
+console.log(!!false);
+console.log(!!null);
+console.log(!!undefined);
+console.log(!!{});
+console.log(!![1,2,3]);
