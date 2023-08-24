@@ -98,6 +98,43 @@ bar();
 function add(x, y) {
     return x + y;
 }
+
 console.dir(add);
 
+// dir 크롬에 띄었을때, 프로퍼티 확인가능
 // ECMA5 스크립트 : 모든 함수가 length와 prototype 프로퍼티를 가져야 한다.
+// name : 함수이름
+// caller : 자신을 호출한 함수
+// arguments : 전달된 인자값
+// __proto__ : 모든 자바 스크립트 객체는 자신의 프로퍼티를 가르키는 [[Prototype]] 이라는 내부 프로퍼티를 갖는다.
+//              내부 프로퍼티는 __proto__로 구현되어있다.
+//              부모역할을 하는 프로토타입 객체 : "Function.prototype 객체"  라고 명명.
+//              이것 역시 함수 객체
+//              constructor프로퍼티, toString(), apply(), call(), bind()메서드 갖고있음.
+
+/**
+ * length 프로퍼티
+ * 함수의 인자갯수가 length 프로퍼티로 지정됨.
+ */
+function func0() {
+    
+}
+function func1(x) {
+    return x;
+}
+function func2(x, y) {
+    return x + y;
+}
+function func3(x, y, z) {
+    return x + y + z;
+}
+console.log('func0.length = ' + func0.length);
+console.log('func1.length = ' + func1.length);
+console.log('func2.length = ' + func2.length);
+console.log('func3.length = ' + func3.length);
+/* == result ==
+func0.length = 0
+func1.length = 1
+func2.length = 2
+func3.length = 3
+*/
